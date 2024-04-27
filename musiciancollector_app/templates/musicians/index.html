@@ -1,0 +1,15 @@
+{% extends 'musicians/base.html' %}
+{% block content %}
+
+<h1>All Musicians</h1>
+
+{% for musician in musicians %}
+    <div class="card">
+        <div class="card-content">
+        <span class="card-title">{{ musician.name }}</span>
+        <p>{{ musician.instrument }}</p>
+        <p>{{ musician.bio }}</p>
+        </div>
+    </div>
+{% endfor %}
+{% endblock %}
