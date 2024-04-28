@@ -5,10 +5,15 @@
 
 {% for musician in musicians %}
     <div class="card">
-        <div class="card-content">
-        <span class="card-title">{{ musician.name }}</span>
-        <p>{{ musician.instrument }}</p>
-        <p>{{ musician.bio }}</p>
+        <div class="card-container">
+            <div class="card-content">
+            <span class="card-title">{{ musician.name }}</span>
+            <hr>
+            <p>Instrument: {{ musician.instrument }}</p>
+            <p>Genre: {{ musician.genre }}</p>
+            <p>Bio: {{ musician.bio }}</p>
+            <p>Body of Works: {{ musician.body_of_works }}</p>
+            </div>
         </div>
     </div>
 {% endfor %}
