@@ -17,8 +17,9 @@
           <li><a href="/" class="left brand-logo">&nbsp;&nbsp;Musician Collector</a></li>
         </ul>
         <ul class="right">
-          <li><a href="/about">About</a></li>
-            <li><a href="/musicians">All Musicians</a></li>
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'musicians_create' %}">Add Musician</a></li>
+          <li><a href="{% url 'index' %}">All Musicians</a></li>
         </ul>
       </div>
     </nav>

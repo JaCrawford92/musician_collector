@@ -1,5 +1,6 @@
 from django.shortcuts import render
 # from django.http import HttpResponse
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Musician
 
 # musicians = [
@@ -37,7 +38,22 @@ def musicians_index(request):
     })
 
 def musicians_detail(request, musician_id):
-    musician = Musician.objects.all(id=musician_id)
+    musician = Musician.objects.get(id=musician_id)
     return render(request, 'musicians/detail.html', {
         'musicians': musician
     })
+
+# Class-based views
+# CreateView, UpdateView, DeleteView
+# These views are used to create, update, and delete objects respectively.
+class MusicianCreate(CreateView):
+    model = Musician
+    fields = ['name', 'instrument', 'genre', 'bio', 'body_of_works']
+
+class MusicianUpdate(UpdateView):
+    model = Musician
+    fields = ['instrument', 'genre', 'bio', 'body_of_works']
+
+class MusicianDelete(DeleteView):
+    model = Musician
+    success_url = '/musicians/'

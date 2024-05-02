@@ -1,0 +1,14 @@
+{% extends 'musicians/base.html' %}
+{% block content %}
+
+{% if object %}
+    <h1>Edit Musician</h1>
+    {% else %}
+    <h1>New Musician</h1>
+    {% endif %}
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn">Save</button>
+    </form>
+{% endblock %}

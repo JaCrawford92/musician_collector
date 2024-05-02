@@ -1,20 +1,21 @@
-{% extends 'cats/base.html' %}
+{% extends 'musicians/base.html' %}
 {% block content %}
 
-<h1>Cat Details</h1>
+<h1>Musician Details</h1>
 
 <div class="card">
   <div class="card-content">
-    <span class="card-title">{{ musician.name }}</span>
-    <p>Instrument: {{ musician.instrument }}</p>
-    <p>Bio: {{ musician.bio|linebreaks }}</p>
-    <p>Body of Work: {{ musician.body_of_works}}</p>
-    {% if cat.age > 0 %}
-      <p>Age: {{ cat.age }}</p>
-    {% else %}
-      <p>Age: Kitten</p>
-    {% endif %}
+    <span class="card-title">{{ musicians.name }}</span>
+    <hr>
+    <p>Genre: {{ musicians.genre }}</p>
+    <p>Instrument: {{ musicians.instrument }}</p>
+    <p>Bio: {{ musicians.bio|linebreaks }}</p>
+    <p>Body of Work: {{ musicians.body_of_works}}</p>
   </div>
+    <div class="card-action">
+        <a href="{% url 'musicians_update' musicians.id %}">Edit</a>
+        <a href="{% url 'musicians_delete' musicians.id %}">Delete</a>
+    </div>
 </div>
 
 {% endblock %}
